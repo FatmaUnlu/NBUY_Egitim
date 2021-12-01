@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\AK47.cs" />
+    <Compile Remove="Resources\AWP.cs" />
+    <Compile Remove="Resources\Bicak.cs" />
+    <Compile Remove="Resources\DesertEagle.cs" />
+    <Compile Remove="Resources\ElBombasi.cs" />
+    <Compile Remove="Resources\Firlatilan.cs" />
+    <Compile Remove="Resources\FlashBombasi.cs" />
+    <Compile Remove="Resources\Glock.cs" />
+    <Compile Remove="Resources\IAtesEdebilen.cs" />
+    <Compile Remove="Resources\IFirlatilabilen.cs" />
+    <Compile Remove="Resources\ISarjorlu.cs" />
+    <Compile Remove="Resources\ISeriAtabilir.cs" />
+    <Compile Remove="Resources\IVurulabilir.cs" />
+    <Compile Remove="Resources\M4A1S.cs" />
+    <Compile Remove="Resources\Silah.cs" />
+    <Compile Remove="Resources\Tabanca.cs" />
+    <Compile Remove="Resources\Tufek.cs" />
+    <Compile Remove="Resources\USP.cs" />
+    <Compile Remove="Resources\YakinSaldiri.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
