@@ -98,6 +98,7 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(228, 23);
             this.txtAra.TabIndex = 6;
+            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             // 
             // btnEkle
             // 

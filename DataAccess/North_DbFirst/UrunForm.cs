@@ -183,5 +183,19 @@ namespace North_DbFirst
                 }
             }
         }
+
+        private void txtAra_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtAra.Text))
+            {
+                lstProducts.DataSource = _dbContext.Products.ToList();
+            }
+            else
+            {
+                var result = _dbContext.Products.Where(x => x.ProductName.Contains(txtAra.Text.ToUpper())).ToList();
+                lstProducts.DataSource = result;
+                this.Text = $"{result.Count} Adet ürün Listelenmektedir.";
+            }
+        }
     }
 }
