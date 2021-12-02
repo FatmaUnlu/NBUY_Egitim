@@ -1,72 +1,51 @@
 ﻿using System;
 
-namespace zarOyunu
+namespace ZarOyunu
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //ÖDEV2
-            do
+            do//1 oyunluk döngü
             {
-
                 Random rnd = new Random();
-                int sayac = 0;
-                int birinciZar = 0; 
-                int ikinciZar = 0;
-                int sayi = 0;
-
-                Console.WriteLine("1-7 arası bir zar bilgisi seçin:");
-                
-                do
+                int[] zar = new int[2];
+                int giris = 0, sayac = 0;
+                Console.Write("Lütfen istediğiniz çiftin zar numarasını giriniz: ");
+                do//sayıyı girebilene kadar dönen döngü
                 {
                     try
                     {
-                        sayi = int.Parse(Console.ReadLine());
-                        if (sayi < 1 || sayi > 6)
-                        {
-                            throw new Exception(); // throw ile hata catchine atar.                        
-                                          // Console.WriteLine("Yanlış giriş yaptınız. Belirtilen aralıkta bir sayı girin: ");
-
-                        }
+                        giris = int.Parse(Console.ReadLine());
+                        if (giris < 1 || giris > 6)
+                            throw new Exception();
                         break;
                     }
                     catch
                     {
-                        Console.WriteLine("Yanlış giriş yaptınız. Belirtilen aralıkta bir sayı girin: ");
+                        Console.Beep(500, 250);
+                        Console.WriteLine("Hatalı Giriş!!!");
+                        Console.WriteLine("1-6 arasında bir değer girmen gerekiyor");
                     }
-                    
+
                 } while (true);
-
-                
-                do
+                do // bulana kadar dönen döngü
                 {
-
-                    birinciZar = rnd.Next(1, 7);
-                    ikinciZar = rnd.Next(1, 7);                   
-
+                    zar[0] = rnd.Next(1, 7);
+                    zar[1] = rnd.Next(1, 7);
                     sayac++;
-
-                    Console.WriteLine("ilk zar :{0} , ikinci zar : {1} ", birinciZar, ikinciZar);
-                    Console.WriteLine("{0}. denemede çift zar geldi ", sayac);
-
-                    if (birinciZar == ikinciZar && birinciZar == sayi)
+                    Console.WriteLine(string.Format("{0}. {1}-{2}", sayac, zar[0], zar[1]));
+                    if (zar[0] == zar[1] && zar[0] == giris)
                     {
-                        Console.WriteLine("{0}. denemede çift zar geldi ", sayac);
+                        Console.WriteLine(string.Format("{0}. denemede bulundu", sayac));
                         break;
                     }
-
                 } while (true);
-
-                Console.WriteLine("tekrar denemek için E ye basınız ");
+                Console.WriteLine("Tekrar oynamak için E tuşuna basınız");
                 ConsoleKeyInfo info = Console.ReadKey();
                 if (info.Key != ConsoleKey.E)
                     break;
-
             } while (true);
-
-
-
         }
     }
 }
